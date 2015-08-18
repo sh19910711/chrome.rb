@@ -9,9 +9,12 @@ module Chrome
     end
 
     def find
-      [ "chromium", "google-chrome", "chromium-browser" ].find do |cmd|
-        p "cmd: #{cmd}"
-        false
+      if OS.linux?
+        [ "chromium", "google-chrome", "chromium-browser" ].find do |cmd|
+          false
+        end
+      else
+        puts "Sorry, your system seems not supported yet."
       end
     end
   end
