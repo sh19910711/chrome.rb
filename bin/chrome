@@ -2,12 +2,12 @@
 
 require "chrome"
 
-chrome = Chrome::Finder.new(ENV['CHROME_BINARY'])
+chrome = Chrome::Finder.new(ENV["CHROME_BINARY"])
 
 if chrome.command?
   puts "chrome"
 else
-  puts 'ERROR: Chrome is not found.'
-  puts 'Please try "CHROME_BINARY=path/to/chrome".'
+  puts "ERROR: Chrome is not found."
+  puts "Please try CHROME_BINARY=path/to/chrome."
   exit 1
 end
