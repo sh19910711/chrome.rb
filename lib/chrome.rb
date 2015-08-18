@@ -1,5 +1,5 @@
 require "chrome/version"
+require "chrome/finder"
 
 module Chrome
-  # Your code goes here...
 end
