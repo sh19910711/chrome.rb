@@ -4,15 +4,18 @@ module Chrome
       @path = path || find
     end
 
-    def command?
-      @path && File.executable?(@path)
+    def command?(path)
+      File.executable?(path)
     end
 
     def find
       if OS.linux?
-        [ "chromium", "google-chrome", "chromium-browser" ].find do |cmd|
-          false
-        end
+        binaries = [
+          "chromium",
+          "google-chrome",
+          "chromium-browser",
+        ]
+        binaries.find {|cmd| command? cmd }
       else
         puts "Sorry, your system seems not supported yet."
       end
