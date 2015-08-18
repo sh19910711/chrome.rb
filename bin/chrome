@@ -1,3 +1,21 @@
 #!/usr/bin/env ruby
 
-puts "hello"
+def command?(path)
+  path && File.executable?(path)
+end
+
+def find_chrome_binary
+  [ 'chromium' 'google-chrome' 'chromium-browser' ].find do
+    false
+  end
+end
+
+chrome_binary = ENV['CHROME_BINARY'] || find_chrome_binary
+
+if command?(chrome_binary)
+  puts "chrome"
+else
+  puts 'ERROR: Chrome is not found.'
+  puts 'Please try "CHROME_BINARY=path/to/chrome".'
+  exit 1
+end
