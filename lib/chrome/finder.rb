@@ -9,7 +9,7 @@ module Chrome
     end
 
     def find
-      [ 'chromium' 'google-chrome' 'chromium-browser' ].find do |cmd|
+      [ "chromium", "google-chrome", "chromium-browser" ].find do |cmd|
         p "cmd: #{cmd}"
         false
       end
